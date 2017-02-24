@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证正则表达式</title>
+</head>
+<body>
+<div id="container1">
+    <span>检验电话号码</span>
+    <input type="text" id="telephone">
+    <input type="button" onclick="testExpTele()" value="检测">
+    <div id="testing1"></div>
+</div>
+<div id="container2" style="margin-top:30px;">
+    <span>检验是否含有相邻重复单词</span>
+    <input type="text" id="words">
+    <input type="button" onclick="testExpWord()" value="检测">
+    <div id="testing2"></div>
+</div>
+<script type="text/javascript">
+    function testExpTele(){
+        var telephone=document.getElementById("telephone").value;
+         if((/^1[34578][0-9]{9}$/).test(telephone)){
+             document.getElementById("testing1").innerText="您输入的是电话号码!";
+         }else{
+             document.getElementById("testing1").innerText="您输入的不是电话号码，请重新输入!";
+             document.getElementById("telephone").value="";
+         }
+    }
+    function testExpWord() {
+        var words=document.getElementById("words").value;
+           words=words.split(" ");
+           flag=false;
+        for(var i=0;i<words.length;i++){
+           if(words[i]==words[i+1]&&words[i]!=""){
+               document.getElementById("testing2").innerText="含有相邻重复单词";
+               flag=true;
+           }
+        }
+        if(words.length!=2&&!flag){
+            for(var i=0;i<words.length;i++){
+                for(j=i+2;j<words.length;j++){
+                    if(words[i]==words[j]){
+                        document.getElementById("testing2").innerText="有重复单词但不相邻";
+                    }else{
+                        document.getElementById("testing2").innerText="没有重复且相邻的单词";
+                    }
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>
