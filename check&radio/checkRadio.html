@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义checkbox,radio样式</title>
+    <style>
+        #container1{
+            margin-top:100px;
+            margin-left:100px;
+        }
+        #container1 input{
+            visibility: hidden;
+            position: absolute;
+            width:20px;
+            height:20px;
+        }
+        #container1 input[type="checkbox"]+label{
+            display: inline-block;
+            width:20px;
+            height:20px;
+            position:relative;
+           background-size:150% 150%;
+            background: url("images/1.png") no-repeat;
+            background-position:-24px -32px;
+        }
+        #container1 input[type="checkbox"]:checked+label{
+            background-position: -59px -32px;
+        }
+        #container1 input[type="radio"]+label{
+            display: inline-block;
+            width:20px;
+            height:20px;
+            position:relative;
+            background-size:150% 150%;
+            background: url("images/1.png") no-repeat;
+            background-position:-24px -9px;
+        }
+        #container1 input[type="radio"]:checked+label{
+            background-position: -59px -9px;
+        }
+        #container2{
+            margin-left:100px;
+            margin-top:20px;
+        }
+        #container2 input{
+            position: absolute;
+            visibility: hidden;
+        }
+        #container2 input[type="checkbox"]+label{
+            /*border-radius:50px;*/
+            display: inline-block;
+            position: relative;
+            border:1px solid #c1c1c1;
+            width: 12px;
+            height:12px;
+        }
+        #container2 input[type="checkbox"]:checked+label{
+            border: 1px solid #D73e33;
+        }
+        #container2 input[type="checkbox"]:checked+label:before{
+            content:'\2714';
+            color:#D73e33;
+            text-align: center;
+            font-size:0.6em;
+            width:100%;
+            display: block;
+            position: absolute;
+        }
+        #container2 input[type="radio"]+label{
+            border-radius:50px;
+            display: inline-block;
+            position: relative;
+            border:1px solid #c1c1c1;
+            width: 15px;
+            height:15px;
+        }
+        #container2 input[type="radio"]:checked+label{
+            border:1px solid #f00;
+        }
+        #container2 input[type="radio"]:checked+label:before{
+            content: '';
+            display: block;
+            border-radius:100%;
+            top:5px;
+            left:5px;
+            background:#D73e33;
+            width: 5px;
+            height:5px;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+<div id="container1">
+    <input type="checkbox" name="hobbies" id="basketball" checked><label for="basketball"></label><br/>
+    <input type="checkbox" name="hobbies" id="soccer"><label for="soccer"></label><br/><br>
+    <input type="radio" name="sex" id="female" checked><label for="female"></label><br/>
+    <input type="radio" name="sex" id="male"><label for="male"></label>
+</div>
+<div id="container2">
+    <input type="checkbox" name="hobbies2"  checked id="basketball1"><label for="basketball1"></label><br/>
+    <input type="checkbox" name="hobbies2" id="soccer1"><label for="soccer1"></label><br/><br>
+    <input type="radio" name="sex2" id="female2" checked><label for="female2"></label><br/>
+    <input type="radio" name="sex2" id="male2"><label for="male2"></label>
+</div>
+</body>
+</html>
